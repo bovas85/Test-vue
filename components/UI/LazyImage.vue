@@ -55,10 +55,16 @@
     </no-ssr>
     <div class="text-container">
       <!-- <p v-show="type === 'post' && title" class="text-heading">Experience</p> -->
-      <nuxt-link v-if="link && title" :to="type === 'post' ? `/journal/${link}` : link" class="text" v-html="title"></nuxt-link>
-      <p v-show="type === 'post' && title" class="text-subheading">Read More</p>
+      <nuxt-link 
+        v-if="link && title" 
+        :to="type === 'post' ? `/journal/${link}` : link" 
+        class="text" 
+        v-html="title"/>
+      <p 
+        v-show="type === 'post' && title" 
+        class="text-subheading">Read More</p>
     </div>
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 
@@ -77,8 +83,14 @@
           };
         }
       },
-      title: "",
+      title: {
+        type: String,
+        default: ""
+      },
       link: {
+        type: Boolean,
+        Object,
+        String,
         default: false
       },
       type: {
@@ -86,6 +98,8 @@
         default: ""
       },
       home: {
+        type: Boolean,
+        Object,
         default: false
       },
       isThumb: {
@@ -93,6 +107,7 @@
         default: false
       },
       hover: {
+        type: Boolean,
         default: true
       },
       destination: {

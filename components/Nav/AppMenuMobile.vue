@@ -1,11 +1,18 @@
 <template>
   <div>
-    <div class="overlay" @click="$store.commit('closeMenu')" :class="{'is-visible': $store.state.navOpen}"></div>
-    <div class="right-nav" :class="{'is-visible': $store.state.navOpen}">
-      <div @click="$store.commit('closeMenu');" class="close-button">
+    <div 
+      class="overlay" 
+      @click="$store.commit('closeMenu')" 
+      :class="{'is-visible': $store.state.navOpen}"/>
+    <div 
+      class="right-nav" 
+      :class="{'is-visible': $store.state.navOpen}">
+      <div 
+        @click="$store.commit('closeMenu');" 
+        class="close-button">
         <div class="close-icon">
-          <span class="close-icon--line"></span>
-          <span class="close-icon--line inverted"></span>
+          <span class="close-icon--line"/>
+          <span class="close-icon--line inverted"/>
         </div>
         <span class="text">Close</span>
       </div>
@@ -28,10 +35,11 @@
     name: "AppMenuMobile",
     props: {
       menuItems: {
-        type: Array
+        type: Array,
+        default: () => []
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>

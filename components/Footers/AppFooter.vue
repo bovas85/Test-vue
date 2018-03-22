@@ -1,10 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-section">
-      <div class="container is-gapless main-footer">
-
-
-      </div> <!-- container -->
+      <div class="container is-gapless main-footer"/> <!-- container -->
     </div> <!-- footer-section -->
   </footer>
 </template>

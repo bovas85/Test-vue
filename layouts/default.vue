@@ -1,11 +1,15 @@
 <template>
-  <div class="app" :class="{'is-offline': $store.state.connection === 'null'}">
-    <app-nav></app-nav>
-    <div class="app-main" :class="{'fixed': $store.state.openModal}">
+  <div 
+    class="app" 
+    :class="{'is-offline': $store.state.connection === 'null'}">
+    <app-nav/>
+    <div 
+      class="app-main" 
+      :class="{'fixed': $store.state.openModal}">
       <nuxt/>
     </div>
-    <cookie-box></cookie-box>
-    <app-footer></app-footer>
+    <cookie-box/>
+    <app-footer/>
   </div>
 </template>
 
@@ -17,7 +21,7 @@
     components: {
       AppNav,
       AppFooter,
-      CookieBox: () => import('@/components/UI/CookieBox')
+      CookieBox: () => import("@/components/UI/CookieBox")
     }
   };
 </script>

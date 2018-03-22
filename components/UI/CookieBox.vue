@@ -1,40 +1,45 @@
 <template>
-  <div v-show="!hide" class="cookies" :class="{'active': show}">
+  <div 
+    v-show="!hide" 
+    class="cookies" 
+    :class="{'active': show}">
     <div class="container">
       <p>We use cookies to improve your experience on our website.
-        <br>By closing or clicking ‘OK’ you accept our cookies policy</p>
-      <button class="button button--main" @click="setCookie()">OK</button>
+      <br>By closing or clicking ‘OK’ you accept our cookies policy</p>
+      <button 
+        class="button button--main" 
+        @click="setCookie()">OK</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'CookieBox',
-  data () {
-    return {
-      hide: true,
-      show: false
+  export default {
+    name: "CookieBox",
+    data () {
+      return {
+        hide: true,
+        show: false
+      };
+    },
+    mounted () {
+      if (this.$localStorage.get("VodafoneCookie") != null) {
+        this.hide = true;
+        this.show = false;
+      } else {
+        setTimeout(() => {
+          this.hide = false;
+          this.show = true;
+        }, 4000);
+      }
+    },
+    methods: {
+      setCookie () {
+        this.hide = true;
+        this.$localStorage.set("VodafoneCookie", true);
+      }
     }
-  },
-  mounted () {
-    if (this.$localStorage.get('VodafoneCookie') != null) {
-      this.hide = true
-      this.show = false
-    } else {
-      setTimeout(() => {
-        this.hide = false
-        this.show = true
-      }, 4000)
-    }
-  },
-  methods: {
-    setCookie () {
-      this.hide = true
-      this.$localStorage.set('VodafoneCookie', true)
-    }
-  }
-}
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -48,7 +53,7 @@ export default {
     z-index: 9999;
     background: #3a3a3a;
     opacity: 0;
-    transition: opacity .6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
     &.active {
       opacity: 1;
     }

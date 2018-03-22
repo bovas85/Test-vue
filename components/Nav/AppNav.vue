@@ -1,43 +1,54 @@
 <template>
-<div class="navigation-bar">
-  <div class="navigation">
-    <nav role="navigation" class="container is-flex navbar">
-      <nuxt-link to="/" @click="refreshPage()" class="logo col--8-mobile col--4-tablet is-center">
-        <img src="/images/logo.png" alt="">
-      </nuxt-link>
-      
-      <div 
-        v-if="$store.state.window && $store.state.window < 1024"
-        @click="$store.commit('openMenu')"
-        class="menu menu--mobile"
-      >
-        <i class="fa fa-menu menu--mobile__burger"></i>
-      </div>
-      
-      
-      <ul v-else class="menu menu--desktop">
-        <nuxt-link
-          :to="`/${menu}`"
-          v-for="(menu, index) in menuItems"
-          :key="index"
-        >
-          {{ menu === '' ? 'our phones' : menu }}
+  <div class="navigation-bar">
+    <div class="navigation">
+      <nav 
+        role="navigation" 
+        class="container is-flex navbar">
+        <nuxt-link 
+          to="/" 
+          @click="refreshPage()" 
+          class="logo col--8-mobile col--4-tablet is-center">
+          <img 
+            src="/images/logo.png" 
+            alt="">
         </nuxt-link>
+      
+        <div 
+          v-if="$store.state.window && $store.state.window < 1024"
+          @click="$store.commit('openMenu')"
+          class="menu menu--mobile"
+        >
+          <i class="fa fa-menu menu--mobile__burger"/>
+        </div>
+      
+      
+        <ul 
+          v-else 
+          class="menu menu--desktop">
+          <nuxt-link
+            :to="`/${menu}`"
+            v-for="(menu, index) in menuItems"
+            :key="index"
+          >
+            {{ menu === '' ? 'our phones' : menu }}
+          </nuxt-link>
 
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </div>
+
+    <no-ssr>
+      <vue-media :query="{maxWidth: 1024}">
+        <div 
+          style="z-index: 9999" 
+          class="modal-container is-hidden-tablet">
+          <app-menu-mobile 
+            :menu-items="menuItems"
+          />
+        </div>
+      </vue-media>
+    </no-ssr>
   </div>
-
-  <no-ssr>
-    <vue-media :query="{maxWidth: 1024}">
-      <div style="z-index: 9999" class="modal-container is-hidden-tablet">
-        <app-menu-mobile 
-          :menuItems="menuItems"
-        ></app-menu-mobile>
-      </div>
-    </vue-media>
-  </no-ssr>
-</div>
   
 </template>
 

@@ -5,7 +5,9 @@
         <h1>We cannot seem to find the page you are looking for</h1>
         <p>Here are some useful links:</p>
         <ul>
-          <li><a class="button button--main" href="/">Homepage</a></li>
+          <li><a 
+            class="button button--main" 
+            href="/">Homepage</a></li>
         </ul>
       </div>
     </div>
@@ -20,7 +22,7 @@
       };
     },
     mounted () {
-      this.$router.replace('/')
+      this.$router.replace("/");
     }
   };
 </script>
