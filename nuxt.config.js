@@ -72,6 +72,12 @@ module.exports = {
       { hid: "og:locale", name: "og:locale", content: "en_GB" },
       { hid: "og:type", name: "og:type", content: "website" },
       { hid: "og:image", name: "og:image", content: "" }
+    ],
+    script: [
+      {
+        src:
+          "https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise"
+      }
     ]
   },
   /* PWA Configuration
@@ -93,30 +99,12 @@ module.exports = {
     ],
     // router settings
     router: {
-      middleware: ["routeGuard"],
-      scrollBehavior (to, from, savedPosition) {
-        if (savedPosition) {
-          return savedPosition;
-        } else {
-          let position = {};
-          if (to.matched.length < 2) {
-            position = { x: 0, y: 0 };
-          } else if (
-            to.matched.some(r => r.components.default.options.scrollToTop)
-          ) {
-            position = { x: 0, y: 0 };
-          }
-          if (to.hash) {
-            position = { selector: to.hash };
-          }
-          return position;
-        }
-      }
+      middleware: ["routeGuard"]
     },
     analyze: {
       analyzerMode: "static"
     },
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       /*
       ** Run ESLint on save
       */
