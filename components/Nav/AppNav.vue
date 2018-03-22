@@ -122,6 +122,8 @@
     width: 100%;
     z-index: 5;
     height: 60px;
+    background-color: white;
+    box-shadow: 0 0 2px 0 $grey;
     margin: 0 auto;
     .navbar {
       align-items: center;
