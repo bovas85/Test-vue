@@ -4,7 +4,10 @@
     <div class="container">
 
       <!-- left column (full-width on mobile) -->
-      <div class="col col--left col--12-mobile col--6-tablet">
+      <div 
+        v-if="currentPhone != null" 
+        class="col col--left col--12-mobile col--6-tablet">
+        
         <product-image
           class="product-image"
           v-bind="$attrs"
@@ -12,10 +15,13 @@
           :src="currentPhone.merchandisingMedia[0].value"
           :alt="currentPhone.displayName"
         />
+        
       </div>
 
       <!-- right column (full-width on mobile) -->
-      <div class="col col--right col--12-mobile col--6-tablet">
+      <div 
+        v-if="currentPhone != null" 
+        class="col col--right col--12-mobile col--6-tablet">
         <h1>{{ currentPhone.displayName }}</h1>
         <p>{{ currentPhone.displayDescription }}</p>
         <i 
@@ -29,10 +35,14 @@
 
         <section class="settings-section">
           <div class="col col--left">
-            <p>Colour:</p>
+            <p>Colour: 
+              <strong>{{ currentPhone.colourName }}</strong>
+            </p>
             <div class="colour-filters">
               <div
                 class="filter"
+                :class="{'active': colour === selectedColour}"
+                @click="selectedColour = colour"
                 v-for="(colour, index) in computedColours"
                 :key="index"
                 :style="`background-color: ${colour}`"
@@ -40,8 +50,20 @@
             </div>
           </div>
           <div class="col col--right">
-            <p>Capacity:</p>
-            <div class="memory-filter"/>
+            <p>Capacity: 
+              <strong>{{ currentPhone.memory }}</strong>
+            </p>
+            <div class="memory-filters">
+              <div
+                class="filter"
+                :class="{'active': memory === selectedMemory}"
+                @click="selectedMemory = memory"
+                v-for="(memory, index) in computedMemory"
+                :key="index"
+              >
+                {{ parseInt(memory) }}
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -62,11 +84,15 @@
     // },
     data () {
       return {
-        online: true,
         // set some defaults here
-        selectedColour: "Space Grey",
-        selectedMemory: "64GB"
+        selectedColour: "#232324",
+        selectedMemory: 64
       };
+    },
+    watch: {
+      currentPhone () {
+        this.$store.commit("setCurrent", this.currentPhone);
+      }
     },
     components: {
       ProductImage: () => import("@/components/UI/ProductImage")
@@ -103,8 +129,8 @@
         return this.page.deviceSummary.find(filters => {
           // return an object of the matching phone
           return (
-            filters.colourName === this.selectedColour &&
-            filters.memory === this.selectedMemory
+            filters.colourHex === this.selectedColour &&
+            parseInt(filters.memory) === this.selectedMemory
           );
         });
       },
@@ -115,6 +141,14 @@
         // ES6 function to create a unique set of indexes (removes repeated hex colours)
         // source: https://stackoverflow.com/a/9229821
         return [...new Set(colourArray)];
+      },
+      computedMemory () {
+        // return a set of unique colours from the different phone types
+        let memArray = this.page.deviceSummary.map(mem => parseInt(mem.memory));
+
+        // ES6 function to create a unique set of indexes (removes repeated hex colours)
+        // source: https://stackoverflow.com/a/9229821
+        return [...new Set(memArray)];
       },
       computedStars () {
         if (this.page == null) {
@@ -141,13 +175,12 @@
     .product-image {
       // mobile-first
       height: 100%;
-      max-height: 40vh;
+      max-height: 32vh;
     }
 
     .col {
       padding: $gap $gap / 2 0; // gap is 24px, in variables.scss
       &--left {
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -168,23 +201,60 @@
 
         .settings-section {
           display: flex;
-          justify-content: space-between;
+          margin: 0 auto;
+          justify-content: space-around;
           .col {
             display: flex;
             flex-direction: column;
+            p {
+              align-self: flex-start;
+              text-align: left;
+            }
           }
-          .colour-filters {
+          .colour-filters,
+          .memory-filters {
             display: flex;
           }
           .filter {
             width: 40px;
             height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 10px;
             border: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
             margin: 0 5px;
             &.active {
               box-shadow: 0 0 0px 3px white, 0 0 0 5px seagreen;
+            }
+          }
+          .memory-filters,
+          .colour-filters {
+            .filter {
+              cursor: pointer;
+              position: relative;
+              &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 10px;
+                content: "";
+                background: rgba(90, 90, 90, 0);
+                background: linear-gradient(
+                  to bottom,
+                  rgba(90, 90, 90, 0) 0%,
+                  rgba(90, 90, 90, 0.2) 60%,
+                  rgba(90, 90, 90, 0.3) 100%
+                );
+              }
+            }
+          }
+          .memory-filters {
+            .filter {
+              background: #fafafa;
             }
           }
         }
