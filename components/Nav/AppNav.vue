@@ -42,18 +42,17 @@
 </template>
 
 <script>
-  import Config from "~/assets/config";
   import debounce from "lodash/debounce";
 
   export default {
     name: "AppNav",
     data () {
       return {
-        menuItems: ['', 'about', 'contact']
-      }
+        menuItems: ["", "about", "contact"]
+      };
     },
     components: {
-      AppMenuMobile: () => import('@/components/Nav/AppMenuMobile')
+      AppMenuMobile: () => import("@/components/Nav/AppMenuMobile")
     },
     methods: {
       refreshPage () {
@@ -129,7 +128,7 @@
       align-items: center;
       padding: 0 15px;
       height: 100%;
-      justify-content: space-between; 
+      justify-content: space-between;
       align-items: center;
       @media (min-width: $tablet) {
         padding: 0 36px;

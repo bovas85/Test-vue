@@ -1,6 +1,5 @@
 import Vue from "vue";
 import startsWith from "lodash/startsWith";
-import Config from "~/assets/config";
 
 Vue.mixin({
   mounted () {
