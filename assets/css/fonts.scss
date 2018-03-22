@@ -5,12 +5,12 @@
 
 @font-face {
   font-family: "fa";
-  src: url("~/assets/fonts/font-awesome.eot?30047827");
-  src: url("~/assets/fonts/font-awesome.eot?30047827#iefix")
+  src: url("~/assets/fonts/fontello.eot?30047827");
+  src: url("~/assets/fonts/fontello.eot?30047827#iefix")
       format("embedded-opentype"),
-    url("~/assets/fonts/font-awesome.woff?30047827") format("woff"),
-    url("~/assets/fonts/font-awesome.ttf?30047827") format("truetype"),
-    url("~/assets/fonts/font-awesome.svg?30047827#font-awesome") format("svg");
+    url("~/assets/fonts/fontello.woff?30047827") format("woff"),
+    url("~/assets/fonts/fontello.ttf?30047827") format("truetype"),
+    url("~/assets/fonts/fontello.svg?30047827#fontello") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -55,69 +55,12 @@
   }
 }
 
-.fa-mail:before {
+.fa-star-half:before {
+  content: "\f123";
+}
+.fa-star:before {
   content: "\e800";
 }
-.fa-certificate:before {
-  content: "\f0a3";
-}
 .fa-menu:before {
-  content: "\e806";
-}
-.fa-calendar:before {
-  content: "\f133";
-}
-.fa-child:before {
-  content: "\f1ae";
-}
-.fa-cab:before {
-  content: "\f1b9";
-}
-.fa-cancel:before {
-  content: "\e801";
-}
-.fa-arrow-right:before {
-  content: "\f105";
-}
-.fa-arrow-left:before {
-  content: "\f104";
-}
-.fa-cancel:before {
-  content: "\e801";
-}
-.fa-download:before {
-  content: "\e802";
-}
-.fa-upload:before {
-  content: "\e803";
-}
-.fa-location:before {
-  content: "\e804";
-}
-.fa-link:before {
-  content: "\f08e";
-}
-.fa-sliders:before {
-  content: "\f1de";
-}
-.fa-arrow-up:before {
-  content: "\f106";
-}
-.fa-arrow-down:before {
-  content: "\f107";
-}
-.fa-bus:before {
-  content: "\f207";
-}
-.fa-train:before {
-  content: "\f238";
-}
-.fa-subway:before {
-  content: "\f239";
-}
-.fa-search:before {
-  content: "\e805";
-}
-.fa-share:before {
-  content: "\f1e0";
+  content: "\f0c9";
 }
