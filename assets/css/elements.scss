@@ -116,17 +116,11 @@
   white-space: nowrap;
   border-radius: 0;
   background: transparent;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   align-items: center;
   display: inline-flex;
   justify-content: flex-start;
   position: relative;
   vertical-align: top;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   justify-content: center;
   transition: color 0.3s ease-in-out;
@@ -136,27 +130,23 @@
   }
   &--main {
     text-transform: uppercase;
-    background-color: $secondary;
+    background: linear-gradient(#a4428b, #6a2c5b);
     color: #ffffff;
     letter-spacing: 2px;
     border: none;
-    outline: 1px solid #ffffff;
-    outline-offset: -2px;
     font-weight: 400;
-    margin: 0 auto;
     font-size: 12px;
     font-size: 0.75rem;
-    min-width: 175px;
+    min-width: 125px;
     width: auto;
     padding: 0 20px;
     height: 38px;
     text-align: center;
-    transition: background-color 0.5s ease-out, color 0.5s ease-out;
+    transition: all 0.5s ease-out;
     &:hover {
-      background-color: #e7ebee;
-      color: $secondary;
-      outline: 1px solid $secondary;
-      outline-offset: -1px;
+      background-color: #a4428b;
+      opacity: 0.8;
+      color: white;
     }
   }
   &--is-link {
