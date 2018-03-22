@@ -1,9 +1,9 @@
 <template>
   <transition 
-    tag="div" 
     name="fade" 
     mode="out-in">
     <img 
+      :key="$attrs.src"
       :id="$attrs.id"
       :src="$attrs.src"
       :alt="$attrs.alt"
