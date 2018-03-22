@@ -5,7 +5,7 @@ build/*
 package-lock.json
 .htaccess
 .idea
- 
+config.js
 # logs
 npm-debug.log
 logs
