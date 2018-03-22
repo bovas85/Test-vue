@@ -1,6 +1,5 @@
 import Vuex from "vuex";
 import axios from "axios";
-import Config from "~/assets/config.js";
 const api = axios.create();
 let arr = [];
 
@@ -15,21 +14,9 @@ function cacheData () {
   if (!arr.length) {
     console.log("Running API calls, no cache");
     // if cache doesn't exist, get the data from the API and cache it
-
-    let data = api
-      .request(Config.wpDomain + Config.api.home)
-      .then(res => {
-        console.log("getting data");
-        return res.data;
-      })
-      .catch(err => console.log(err));
-
-    return Promise.all([data]).then(
-      values => {
-        arr = values;
-        return values;
-      }
-    );
+    let data = require("~/assets/data/phones.json");
+    arr = data;
+    return data;
   } else {
     console.log("Using cached API calls");
     return arr;
