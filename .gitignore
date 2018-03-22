@@ -5,8 +5,7 @@ build/*
 package-lock.json
 .htaccess
 .idea
-assets/config.js
-
+ 
 # logs
 npm-debug.log
 logs
@@ -22,8 +21,6 @@ Thumbs.db
 # Intellij idea
 .idea
 *iml
-
-assets/config.js
 
 # VSCode
 .vscode
