@@ -27,10 +27,9 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       data: [],
-      mobileNavOpen: false,
       navOpen: false,
+      current: null,
       modalOpen: false,
-      searchOpen: false,
       lazyloaded: false,
       routeTransition: true,
       window: 320,
@@ -43,22 +42,6 @@ const createStore = () => {
       resetMenus (state) {
         state.modalOpen = false;
         state.navOpen = false;
-        state.searchOpen = false;
-        state.mobileNavOpen = false;
-        state.destinationMenu = false;
-        state.destinationSubMenu = false;
-      },
-      removeLoader (state) {
-        setTimeout(() => {
-          state.lazyloaded = true;
-          state.limit = state.destinations.length;
-        }, 1500);
-        state.routeTransition = false;
-      },
-      routeTransition (state) {
-        state.limit = 1;
-        state.routeTransition = true;
-        state.lazyloaded = false;
       },
       windowResize (state, size) {
         state.window = size;
@@ -73,6 +56,9 @@ const createStore = () => {
       openMenu (state) {
         state.navOpen = true;
         state.modalOpen = true;
+      },
+      setCurrent (state, product) {
+        state.current = product;
       }
     },
     actions: {
