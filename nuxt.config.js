@@ -1,7 +1,6 @@
 const axios = require("axios");
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const Config = require("./assets/config");
 var ImageminPlugin = require("imagemin-webpack-plugin").default;
 
 module.exports = {
@@ -24,8 +23,18 @@ module.exports = {
       { name: "msapplication-TileColor", content: "#ffffff" },
       { name: "msapplication-TileImage", content: "/ms-icon-144x144.png" },
       { name: "theme-color", content: "#ffffff" },
-      { hid: "description", name: "description", content: "Stay Connected With Vodafone's Most Reliable Network Ever. Brands: Apple, Samsung, Sony, Huawei, LG, BlackBerry, Motorola. Types: Pay Monthly Handsets, Pay As You Go Handsets, SIM Only, Mobile Broadband, Accessories." },
-      { hid: "keywords", name: "keywords", content: "Apple, Samsung, Sony, Huawei, LG, BlackBerry, Motorola, Pay Monthly Handsets, Pay As You Go Handsets, SIM Only, Mobile Broadband, Accessories" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Stay Connected With Vodafone's Most Reliable Network Ever. Brands: Apple, Samsung, Sony, Huawei, LG, BlackBerry, Motorola. Types: Pay Monthly Handsets, Pay As You Go Handsets, SIM Only, Mobile Broadband, Accessories."
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "Apple, Samsung, Sony, Huawei, LG, BlackBerry, Motorola, Pay Monthly Handsets, Pay As You Go Handsets, SIM Only, Mobile Broadband, Accessories"
+      },
       { hid: "image", name: "image", content: "/vodafone.png" },
       { hid: "name", itemprop: "name", content: "Vodafone" },
       {
@@ -63,14 +72,6 @@ module.exports = {
       { hid: "og:locale", name: "og:locale", content: "en_GB" },
       { hid: "og:type", name: "og:type", content: "website" },
       { hid: "og:image", name: "og:image", content: "" }
-    ],
-    link: [
-      // {
-      //   rel: "stylesheet",
-      //   type: "text/css",
-      //   href: "https://use.typekit.net/zaa7qmx.css"
-      // },
-      { rel: "dns-prefetch", href: Config.wpDomain + "/" }
     ]
   },
   /* PWA Configuration
