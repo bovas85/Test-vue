@@ -1,0 +1,182 @@
+.method a {
+  flex-direction: column;
+  align-items: center;
+}
+.social,
+.method a {
+  text-align: center;
+  display: flex;
+  font-size: 1.6em;
+  display: flex;
+  .social__icon,
+  .icon {
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    a,
+    i {
+      color: #fff;
+    }
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    &:hover {
+      a,
+      i {
+        color: $red;
+      }
+    }
+  }
+  span {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #ffffff;
+    border-bottom: 4px solid #e1f2f2;
+    margin-top: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  .icon {
+    width: 27px;
+    height: 27px;
+    border: 1px solid white;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+    &:not(:last-child) {
+      margin: 0;
+    }
+    i {
+      color: white;
+      font-size: 13px;
+    }
+  }
+}
+
+.rendered-content a,
+.about-rendered-content a {
+  font-size: 16px;
+  line-height: 1.44;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: currentColor;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -1px;
+    height: 2px;
+    background-color: $secondary-dark;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    max-width: 0%;
+    bottom: -1px;
+    height: 2px;
+    background-color: $red;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    &:after {
+      max-width: 100%;
+    }
+  }
+  &:visited {
+    &:before,
+    &:after {
+      max-width: 100%;
+    }
+  }
+}
+.button {
+  border: none;
+  color: currentColor;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  font-size: $font-size;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 0;
+  background: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  display: inline-flex;
+  justify-content: flex-start;
+  position: relative;
+  vertical-align: top;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  justify-content: center;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+  &--main {
+    text-transform: uppercase;
+    background-color: $secondary;
+    color: #ffffff;
+    letter-spacing: 2px;
+    border: none;
+    outline: 1px solid #ffffff;
+    outline-offset: -2px;
+    font-weight: 400;
+    margin: 0 auto;
+    font-size: 12px;
+    font-size: 0.75rem;
+    min-width: 175px;
+    width: auto;
+    padding: 0 20px;
+    height: 38px;
+    text-align: center;
+    transition: background-color 0.5s ease-out, color 0.5s ease-out;
+    &:hover {
+      background-color: #e7ebee;
+      color: $secondary;
+      outline: 1px solid $secondary;
+      outline-offset: -1px;
+    }
+  }
+  &--is-link {
+    font-size: $font-small;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+}
+
+h3 {
+  color: $secondary;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1.8px;
+  @media (min-width: $tablet) {
+    font-size: 24px;
+  }
+  .red {
+    color: $red;
+    line-height: 1;
+  }
+}

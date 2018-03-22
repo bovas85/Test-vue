@@ -1,0 +1,82 @@
+// animations and transitions
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave,
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s 3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave,
+.fade-enter-to {
+  opacity: 1;
+}
+
+.page-leave-active {
+  animation: blurOut 0.4s ease-in both;
+  overflow-y: hidden !important;
+}
+
+.page-enter-active {
+  animation: blurIn 0.4s ease-in both;
+}
+
+.slide-leave-active {
+  animation: slideOut 1s ease-in 1s both;
+  // overflow-y: hidden !important;
+}
+
+.slide-enter-active {
+  animation: slideIn 1s ease-in 1s both;
+}
+
+@keyframes blurOut {
+  from {
+    filter: blur(0px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(200px);
+    opacity: 1;
+  }
+}
+@keyframes blurIn {
+  from {
+    filter: blur(200px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-101%);
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
