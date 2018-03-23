@@ -80,6 +80,10 @@ module.exports = {
       }
     ]
   },
+  // enable this if deploying to a subfolder
+  // router: {
+  //   base: '/voxi-fone/'
+  // },
   /* PWA Configuration
   **
   */
@@ -97,10 +101,6 @@ module.exports = {
       require("postcss-resemble-image").default,
       require("postcss-responsive-type")()
     ],
-    // router settings
-    router: {
-      middleware: ["routeGuard"]
-    },
     analyze: {
       analyzerMode: "static"
     },
