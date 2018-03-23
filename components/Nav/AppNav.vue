@@ -41,7 +41,7 @@
       <vue-media :query="{maxWidth: 1024}">
         <div 
           style="z-index: 9999" 
-          class="modal-container is-hidden-tablet">
+          class="modal-container is-hidden-desktop">
           <app-menu-mobile 
             :menu-items="menuItems"
           />
@@ -160,11 +160,14 @@
             font-size: 18px;
             text-transform: uppercase;
             font-weight: 400;
-            &.nuxt-link-active {
+            transition: color 0.3s ease-in-out;
+            &.nuxt-link-active,
+            &:hover {
               font-weight: bold;
+              color: $red;
             }
             &:not(:last-child) {
-              margin-right: 10px;
+              margin-right: $gap;
             }
           }
         }
