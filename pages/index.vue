@@ -194,7 +194,7 @@
     .product-image {
       // mobile-first
       height: 100%;
-      max-height: 32vh;
+      max-height: 26vh;
       @media (min-width: $tablet) {
         height: 50vh;
         max-height: unset;
