@@ -74,6 +74,7 @@ module.exports = {
       { hid: "og:image", name: "og:image", content: "" }
     ],
     script: [
+      // IE 11 polyfill for Array.find
       {
         src:
           "https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise"
@@ -82,7 +83,7 @@ module.exports = {
   },
   // enable this if deploying to a subfolder
   // router: {
-  //   base: '/voxi-fone/'
+  //   base: '/'
   // },
   /* PWA Configuration
   **
