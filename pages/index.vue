@@ -194,7 +194,7 @@
     .product-image {
       // mobile-first
       height: 100%;
-      max-height: 26vh;
+      max-height: 20vh;
       @media (min-width: $tablet) {
         height: 50vh;
         max-height: unset;
@@ -231,13 +231,19 @@
         h1 {
           font-size: responsive 24px 36px;
           font-weight: 400;
-          margin-bottom: $gap;
+          margin-bottom: $gap / 2;
+          @media (min-width: $tablet) {
+            margin-bottom: $gap;
+          }
         }
         p {
-          margin-top: $gap / 1.5;
           font-size: 18px;
           font-weight: 400;
           padding-bottom: 20px;
+          margin-top: $gap / 2;
+          @media (min-width: $tablet) {
+            margin-top: $gap / 1.5;
+          }
         }
         i {
           color: goldenrod;
