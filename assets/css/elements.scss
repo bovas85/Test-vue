@@ -130,7 +130,7 @@
   }
   &--main {
     text-transform: uppercase;
-    background: linear-gradient(#a4428b, #6a2c5b);
+    background: black;
     color: #ffffff;
     letter-spacing: 2px;
     border: none;
@@ -142,11 +142,14 @@
     padding: 0 20px;
     height: 38px;
     text-align: center;
-    transition: all 0.5s ease-out;
+    transition: all 0.6s ease-out;
     &:hover {
-      background-color: #a4428b;
+      background: rgba(25, 23, 20, 0.6);
       opacity: 0.8;
       color: white;
+    }
+    &:active {
+      background: rgba(25, 23, 20, 0.4);
     }
   }
   &--is-link {
