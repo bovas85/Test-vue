@@ -1,5 +1,5 @@
 <template>
-  <main class="phone-page">
+  <div class="phone-page">
 
     <div class="container">
 
@@ -33,7 +33,7 @@
           v-show="computedStars.half" 
           class="fa fa-star-half"/>
 
-        <section class="settings-section">
+        <div class="settings-section">
           <div class="col col--left">
             <p>Colour: 
               <strong>{{ currentPhone.colourName }}</strong>
@@ -65,20 +65,20 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section class="desktop-price is-hidden-touch">
+        <div class="desktop-price is-hidden-touch">
           <div class="col col--12">
             <app-price v-if="$store.state.current != null" />
           </div>
           <div class="col col--12">
             <button class="button button--main">Buy Now</button>
           </div>
-        </section>
+        </div>
       </div>
     </div>
 
-  </main>
+  </div>
 </template>
 
 <script>
