@@ -44,9 +44,11 @@
       align-items: center;
       .main-footer {
         display: flex;
-        padding: 0 15px;
         justify-content: space-around;
         align-items: center;
+        @media (min-width: $tablet) {
+          padding: 0 15px;
+        }
       }
     }
   }
