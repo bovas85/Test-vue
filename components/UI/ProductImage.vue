@@ -2,7 +2,7 @@
   <transition 
     name="fade" 
     mode="out-in">
-    <img 
+    <img
       :key="$attrs.src"
       :id="$attrs.id"
       :src="$attrs.src"

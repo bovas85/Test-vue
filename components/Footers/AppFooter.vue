@@ -5,22 +5,8 @@
       class="footer-section">
       <div 
         v-show="$store.state.window < 1024" 
-        class="container is-flex main-footer">
-        <div class="price">
-          <div class="upfront">
-            From £
-            <span>
-              {{ $store.state.current.priceInfo.hardwarePrice.oneOffPrice.gross }}
-            </span>
-            upfront cost
-          </div>
-          <div class="monthly">
-            When you pay £ 
-            <span>
-              {{ $store.state.current.priceInfo.bundlePrice.monthlyPrice.gross }}
-            </span> a month
-          </div>
-        </div>
+        class="container main-footer is-hidden-desktop">
+        <app-price v-if="$store.state.current != null" />
 
         <button class="button button--main">Buy Now</button>
       </div> <!-- container -->
@@ -36,6 +22,9 @@
         type: Boolean,
         default: true
       }
+    },
+    components: {
+      AppPrice: () => import("@/components/UI/AppPrice")
     }
   };
 </script>
@@ -54,16 +43,12 @@
       height: 100%;
       align-items: center;
       .main-footer {
+        display: flex;
         justify-content: space-around;
         align-items: center;
-      }
-    }
-    .price {
-      font-weight: 500;
-      span {
-        font-size: 24px;
-        color: $red;
-        font-weight: bold;
+        @media (min-width: $tablet) {
+          padding: 0 15px;
+        }
       }
     }
   }

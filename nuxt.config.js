@@ -74,12 +74,17 @@ module.exports = {
       { hid: "og:image", name: "og:image", content: "" }
     ],
     script: [
+      // IE 11 polyfill for Array.find
       {
         src:
           "https://cdn.polyfill.io/v2/polyfill.js?features=String.prototype.includes,Array.prototype.find,Promise"
       }
     ]
   },
+  // enable this if deploying to a subfolder
+  // router: {
+  //   base: '/'
+  // },
   /* PWA Configuration
   **
   */
@@ -97,14 +102,10 @@ module.exports = {
       require("postcss-resemble-image").default,
       require("postcss-responsive-type")()
     ],
-    // router settings
-    router: {
-      middleware: ["routeGuard"]
-    },
     analyze: {
       analyzerMode: "static"
     },
-    extend(config, { isDev, isClient }) {
+    extend (config, { isDev, isClient }) {
       /*
       ** Run ESLint on save
       */
@@ -155,7 +156,6 @@ module.exports = {
     { src: "~/plugins/vue-progressive-image.js", ssr: false },
     { src: "~/plugins/vue-media.js", ssr: false },
     { src: "~/plugins/vue-intersect", ssr: false },
-    { src: "~/plugins/vue-localstorage.js", ssr: false },
-    { src: "~/plugins/vue-transitions.js", ssr: false }
+    { src: "~/plugins/vue-localstorage.js", ssr: false }
   ]
 };

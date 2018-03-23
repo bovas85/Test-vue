@@ -46,29 +46,43 @@
       image () {
         if (this.$store.state.connect === "other") {
           return `${this.sources.small} 500w,
-                                                    ${this.sources.small} 1024w,
-                                                    ${this.sources.medium} 1920w,
-                                                    ${this.sources.ultra} 2048w`;
+                                                          ${
+                                                            this.sources.small
+                                                          } 1024w,
+                                                          ${
+                                                            this.sources.medium
+                                                          } 1920w,
+                                                          ${
+                                                            this.sources.ultra
+                                                          } 2048w`;
         } else if (this.$store.state.connect === "cellular") {
           return `${this.sources.small} 500w,
-                                                    ${this.sources.medium} 1024w,
-                                                    ${this.sources.medium} 1920w,
-                                                    ${this.sources.ultra} 2048w`;
+                                                          ${
+                                                            this.sources.medium
+                                                          } 1024w,
+                                                          ${
+                                                            this.sources.medium
+                                                          } 1920w,
+                                                          ${
+                                                            this.sources.ultra
+                                                          } 2048w`;
         } else {
           if (this.sources != null) {
             return `${this.sources.small} 500w,
-                                                      ${
-                                                        this.sources.medium
-                                                      } 1024w,
-                                                      ${this.sources.large} 1920w,
-                                                      ${
-                                                        this.sources.ultra
-                                                      } 2048w`;
+                                                            ${
+                                                              this.sources.medium
+                                                            } 1024w,
+                                                            ${
+                                                              this.sources.large
+                                                            } 1920w,
+                                                            ${
+                                                              this.sources.ultra
+                                                            } 2048w`;
           } else {
             return `https://placehold.it/150x150 500w,
-                                                      https://placehold.it/800x600 1024w,
-                                                      https://placehold.it/1200x720 1100w,
-                                                      https://placehold.it/2048x1080 2048w`;
+                                                            https://placehold.it/800x600 1024w,
+                                                            https://placehold.it/1200x720 1100w,
+                                                            https://placehold.it/2048x1080 2048w`;
           }
         }
       }

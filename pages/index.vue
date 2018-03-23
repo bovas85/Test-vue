@@ -1,5 +1,5 @@
 <template>
-  <main class="phone-page">
+  <div class="phone-page">
 
     <div class="container">
 
@@ -23,17 +23,21 @@
         v-if="currentPhone != null" 
         class="col col--right col--12-mobile col--6-tablet">
         <h1>{{ currentPhone.displayName }}</h1>
-        <p>{{ currentPhone.displayDescription }}</p>
+        
         <i 
           class="fa fa-star"
           v-for="(star, index) in computedStars.rating"
           :key="index"
         />
+        <!-- show half star if rating is float -->
         <i 
           v-show="computedStars.half" 
           class="fa fa-star-half"/>
 
-        <section class="settings-section">
+        <p>{{ currentPhone.displayDescription }}</p>
+        
+
+        <div class="settings-section">
           <div class="col col--left">
             <p>Colour: 
               <strong>{{ currentPhone.colourName }}</strong>
@@ -65,11 +69,22 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div class="desktop-price is-hidden-touch">
+          <div class="col col--12">
+            <app-price 
+              has-bg 
+              v-if="$store.state.current != null" />
+          </div>
+          <div class="col col--12">
+            <button class="button button--main">Buy Now</button>
+          </div>
+        </div>
       </div>
     </div>
 
-  </main>
+  </div>
 </template>
 
 <script>
@@ -95,7 +110,8 @@
       }
     },
     components: {
-      ProductImage: () => import("@/components/UI/ProductImage")
+      ProductImage: () => import("@/components/UI/ProductImage"),
+      AppPrice: () => import("@/components/UI/AppPrice")
     },
     head () {
       return { title: "Home" };
@@ -171,15 +187,40 @@
   .phone-page {
     margin-top: 60px;
     min-height: calc(100vh - 120px);
-
+    @media (min-width: $tablet) {
+      margin-top: 60px + $gap;
+    }
     .product-image {
       // mobile-first
       height: 100%;
       max-height: 32vh;
+      @media (min-width: $tablet) {
+        height: 50vh;
+        max-height: unset;
+      }
     }
 
     .col {
       padding: $gap $gap / 2 0; // gap is 24px, in variables.scss
+      @media (min-width: $tablet) {
+        padding: $gap 0;
+      }
+      &--left {
+        width: 20%;
+      }
+      &--right {
+        margin-left: 4%;
+        width: 75%;
+      }
+      @supports (display: grid) {
+        &--left {
+          width: auto;
+        }
+        &--right {
+          margin-left: 0;
+          width: auto;
+        }
+      }
       &--left {
         display: flex;
         justify-content: center;
@@ -187,10 +228,12 @@
       }
       &--right {
         h1 {
-          font-size: 24px;
-          font-weight: bold;
+          font-size: responsive 24px 36px;
+          font-weight: 400;
+          margin-bottom: $gap;
         }
         p {
+          margin-top: $gap / 1.5;
           font-size: 18px;
           font-weight: 400;
           padding-bottom: 20px;
@@ -203,9 +246,17 @@
           display: flex;
           margin: 0 auto;
           justify-content: space-around;
+          @media (min-width: $tablet) {
+            justify-content: flex-start;
+          }
           .col {
             display: flex;
             flex-direction: column;
+            @media (min-width: $tablet) {
+              &:first-child {
+                margin-right: $gap * 5;
+              }
+            }
             p {
               align-self: flex-start;
               text-align: left;

@@ -25,13 +25,12 @@
       }
     }
     &.is-flex {
-      display: flex !important;
+      display: flex;
     }
     > div {
       float: none;
     }
   }
-
   .container > *,
   .grid-wrapper > *,
   .container-fluid > * {
@@ -43,7 +42,6 @@
       justify-self: stretch;
     }
   }
-
   .col {
     margin: 0;
     padding: 0;
@@ -64,33 +62,27 @@
       justify-self: stretch;
     }
   }
-
   .flex-wrapper {
     display: flex;
     width: 100%;
     grid-column: span 12;
     justify-content: space-between;
   }
-
   $class-slug: col !default; // iterable classname
-
   @media (min-width: $mobile-large) {
     @for $i from 1 through 13 {
       // example col--1 spans 1 column
       .#{$class-slug}--#{$i} {
         grid-column: span #{$i};
       }
-
     }
   }
-
-  //mobile first columns
+  // mobile first columns
   @for $i from 1 through 13 {
     .#{$class-slug}--#{$i}-mobile {
       grid-column: span #{$i};
     }
   }
-
   @media (min-width: $tablet) {
     @for $i from 1 through 13 {
       .#{$class-slug}--#{$i}-tablet {
@@ -98,7 +90,6 @@
       }
     }
   }
-
   @media (min-width: $desktop) {
     @for $i from 1 through 13 {
       .#{$class-slug}--#{$i}-desktop {
