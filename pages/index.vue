@@ -66,6 +66,15 @@
             </div>
           </div>
         </section>
+
+        <section class="desktop-price is-hidden-touch">
+          <div class="col col--12">
+            <app-price v-if="$store.state.current != null" />
+          </div>
+          <div class="col col--12">
+            <button class="button button--main">Buy Now</button>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -95,7 +104,8 @@
       }
     },
     components: {
-      ProductImage: () => import("@/components/UI/ProductImage")
+      ProductImage: () => import("@/components/UI/ProductImage"),
+      AppPrice: () => import("@/components/UI/AppPrice")
     },
     head () {
       return { title: "Home" };
@@ -176,10 +186,17 @@
       // mobile-first
       height: 100%;
       max-height: 32vh;
+      @media (min-width: $tablet) {
+        height: 50vh;
+        max-height: unset;
+      }
     }
 
     .col {
       padding: $gap $gap / 2 0; // gap is 24px, in variables.scss
+      @media (min-width: $tablet) {
+        padding: $gap * 2 0;
+      }
       &--left {
         display: flex;
         justify-content: center;
@@ -203,9 +220,17 @@
           display: flex;
           margin: 0 auto;
           justify-content: space-around;
+          @media (min-width: $tablet) {
+            justify-content: flex-start;
+          }
           .col {
             display: flex;
             flex-direction: column;
+            @media (min-width: $tablet) {
+              &:first-child {
+                margin-right: $gap * 5;
+              }
+            }
             p {
               align-self: flex-start;
               text-align: left;
