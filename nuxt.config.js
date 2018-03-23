@@ -155,7 +155,6 @@ module.exports = {
     { src: "~/plugins/vue-progressive-image.js", ssr: false },
     { src: "~/plugins/vue-media.js", ssr: false },
     { src: "~/plugins/vue-intersect", ssr: false },
-    { src: "~/plugins/vue-localstorage.js", ssr: false },
-    { src: "~/plugins/vue-transitions.js", ssr: false }
+    { src: "~/plugins/vue-localstorage.js", ssr: false }
   ]
 };
