@@ -185,8 +185,9 @@
 
 <style lang="scss" scoped>
   .phone-page {
-    margin-top: 60px;
-    min-height: calc(100vh - 120px);
+    // margin-top: 60px;
+    // min-height: calc(100vh - 120px);
+    overflow: auto;
     @media (min-width: $tablet) {
       margin-top: 60px + $gap;
     }
@@ -244,12 +245,13 @@
 
         .settings-section {
           display: flex;
-          margin: 0 auto;
+          margin: $gap / 1.5 auto;
           justify-content: space-around;
           @media (min-width: $tablet) {
             justify-content: flex-start;
           }
           .col {
+            padding: 0;
             display: flex;
             flex-direction: column;
             @media (min-width: $tablet) {

@@ -44,11 +44,16 @@
       align-items: center;
       .main-footer {
         display: flex;
+        width: 100%;
         justify-content: space-around;
         align-items: center;
         @media (min-width: $tablet) {
           padding: 0 15px;
         }
+      }
+      .button {
+        margin-left: auto;
+        margin-right: 15px;
       }
     }
   }

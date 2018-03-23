@@ -32,4 +32,7 @@
     position: fixed;
     z-index: 999;
   }
+  .app-main {
+    margin: 60px 0;
+  }
 </style>
