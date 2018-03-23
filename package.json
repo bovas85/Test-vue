@@ -4,6 +4,9 @@
   "description": "Vodafone",
   "author": "Alessandro Giordo <bovas85@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "9.8.0"
+  },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/google-analytics": "^2.0.2",
