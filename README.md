@@ -2,7 +2,7 @@
 
 > Starter Template by Alessandro Giordo, using NuxtJS (VueJS)
 
-## Live version at [Now by Zeit](https://vodafone-abmyzhfaiw.now.sh/)
+## Live version at [Now by Zeit](https://vodafone-oqumqjmsgq.now.sh/)
 
 ## Build Setup
 
