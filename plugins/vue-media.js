@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import Media from 'vue-media'
+import Vue from "vue";
+import Media from "vue-media";
 
-Vue.component('vue-media', Media)
+Vue.component("vue-media", Media);
