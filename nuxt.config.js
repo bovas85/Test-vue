@@ -104,7 +104,7 @@ module.exports = {
     analyze: {
       analyzerMode: "static"
     },
-    extend(config, { isDev, isClient }) {
+    extend (config, { isDev, isClient }) {
       /*
       ** Run ESLint on save
       */
